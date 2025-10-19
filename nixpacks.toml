@@ -1,0 +1,11 @@
+[phases.setup]
+cmds = ["echo 'Setup phase started'"]
+
+[phases.install]
+cmds = ["pip install -r requirements.txt"]
+
+[phases.build]
+cmds = ["echo 'Build completed'"]
+
+[start]
+cmd = "gunicorn server:app -b 0.0.0.0:$PORT -w 4 -t 60"
